@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Question ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #ffd6e7, #fff0f5);
+  overflow: hidden;
+}
+
+.container {
+  background: white;
+  padding: 35px 25px;
+  border-radius: 25px;
+  text-align: center;
+  width: 85%;
+  max-width: 400px;
+  box-shadow: 0 8px 25px #d98ba755;
+}
+
+h1 { color: #e84375; }
+p { color: #777; }
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+button {
+  padding: 13px 28px;
+  border: none;
+  border-radius: 30px;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+#yes {
+  background: #e84375;
+  color: white;
+}
+
+#no {
+  background: #777;
+  color: white;
+  position: relative;
+}
+
+#result {
+  display: none;
+  color: #e84375;
+  font-size: 21px;
+  margin-top: 25px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <h1>Hey My Love! ❤️</h1>
+
+  <h2>Do you love me? 🥺</h2>
+
+  <p>Think carefully before answering! 😘</p>
+
+  <div class="buttons">
+    <button id="yes">YES ❤️</button>
+    <button id="no">NO 🙈</button>
+  </div>
+
+  <div id="result">
+    <h2>Yayyyyy! 😍❤️</h2>
+    <p>I knew it! I love you more and more every day.</p>
+    <p>Forever starts with us! 💍</p>
+  </div>
+
+</div>
+
+<script>
+const noButton = document.getElementById("no");
+const yesButton = document.getElementById("yes");
+const result = document.getElementById("result");
+
+function moveNoButton() {
+  const maxX = window.innerWidth - noButton.offsetWidth - 20;
+  const maxY = window.innerHeight - noButton.offsetHeight - 20;
+
+  noButton.style.position = "fixed";
+  noButton.style.left = Math.max(10, Math.random() * maxX) + "px";
+  noButton.style.top = Math.max(10, Math.random() * maxY) + "px";
+}
+
+noButton.addEventListener("mouseover", moveNoButton);
+noButton.addEventListener("touchstart", function(e) {
+  e.preventDefault();
+  moveNoButton();
+});
+
+yesButton.addEventListener("click", function() {
+  result.style.display = "block";
+  document.querySelector(".buttons").style.display = "none";
+});
+</script>
+</body>
+</html>
